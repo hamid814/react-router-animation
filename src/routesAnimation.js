@@ -1,13 +1,27 @@
-import gsap from 'gsap';
+import gsap, { Power3 } from 'gsap';
 
-export const animationDuration = 3500;
+export const animationDuration = 600;
 
-export const onEnter = (node, appears) => {
-  console.log('Enter', node, appears);
-  gsap.to(node, { duration: animationDuration, x: 200 });
+export const onEnter = (elem, appears) => {
+  console.log('Enter', elem, appears);
+  gsap.fromTo(
+    elem,
+    {
+      y: -1 * window.innerHeight,
+    },
+    {
+      y: 0,
+      duration: animationDuration / 1000,
+      ease: Power3.easeOut,
+    }
+  );
 };
 
-export const onExit = (node) => {
-  console.log('Exit', node);
-  gsap.to(node, { duration: animationDuration, opacity: 0 });
+export const onExit = (elem) => {
+  console.log('Exit', elem);
+  gsap.to(elem, {
+    duration: animationDuration / 1000,
+    opacity: 0,
+    ease: Power3.easeIn,
+  });
 };
