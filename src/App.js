@@ -8,12 +8,17 @@ import About from './About';
 import Author from './Author';
 
 const App = () => {
+  const PUBLIC_URL = process.env.PUBLIC_URL;
+  const HOME_URL = `${PUBLIC_URL}/`;
+  const ABOUT_URL = `${PUBLIC_URL}/about`;
+  const AUTHOR_URL = `${PUBLIC_URL}/author`;
+
   return (
     <BrowserRouter>
       <>
         <div className="nav">
-          <Link to="/">Home</Link> <Link to="/about">About</Link>{' '}
-          <Link to="/author">Author</Link>
+          <Link to={HOME_URL}>Home</Link> <Link to={ABOUT_URL}>About</Link>{' '}
+          <Link to={AUTHOR_URL}>Author</Link>
         </div>
         <div className="main">
           <Route
@@ -33,9 +38,9 @@ const App = () => {
                     }}
                   >
                     <Switch location={location}>
-                      <Route exact path="/" component={Home} />
-                      <Route path="/about" component={About} />
-                      <Route path="/author" component={Author} />
+                      <Route exact path={HOME_URL} component={Home} />
+                      <Route path={ABOUT_URL} component={About} />
+                      <Route path={AUTHOR_URL} component={Author} />
                     </Switch>
                   </Transition>
                 </TransitionGroup>

@@ -2,6 +2,7 @@
   "name": "react-three",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://hamid814.github.io/react-router-animation/",
   "dependencies": {
     "gsap": "^3.6.0",
     "react": "^17.0.1",
